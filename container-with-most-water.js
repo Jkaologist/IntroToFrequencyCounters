@@ -32,9 +32,29 @@
  */
 
 function maxArea(height) {
-  let area
+  let area = 0
+  let tmpArea = 0
+
+  height.unshift(0)
   console.log(height)
+
+  lastX = height.length -1
+  //console.log("lastX:", lastX)
+  for (let i=lastX; i > 0; i--) {
+     if (height[lastX] > height[i-1]) {
+       continue
+     }
+     console.log("height[i-1]:",height[i-1])
+     tmpArea = height[lastX] * (lastX - (i-1))
+     console.log("tmpArea:",tmpArea)
+     if (tmpArea > area) {
+      area = tmpArea
+      console.log("area:",area)
+     }
+  }
   return area
 }
 
-modules.exports = maxArea
+
+
+module.exports = maxArea

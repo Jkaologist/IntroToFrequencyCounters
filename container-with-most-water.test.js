@@ -12,3 +12,12 @@ test('height of nums returns max area', () => {
 test('height of nums returns max area', () => {
   expect(maxArea([1,2,1])).toBe(2)
 })
+test('height of nums returns max area', () => {
+  expect(maxArea([2,2,2,2,2,6,2,6,2,2,2,2,2])).toBe(24)
+})
+test('height of nums returns max area', () => {
+  expect(maxArea([2,1])).toBe(1)
+})
+test('height of nums returns max area', () => {
+  expect(maxArea([1,2])).toBe(1)
+})

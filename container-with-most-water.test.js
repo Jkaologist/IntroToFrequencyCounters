@@ -21,3 +21,15 @@ test('height of nums returns max area', () => {
 test('height of nums returns max area', () => {
   expect(maxArea([1,2])).toBe(1)
 })
+test('area of nums with 0 in data', () => {
+  expect(maxArea([0,2])).toBe(0)
+})
+test('area of nums with 0 in data', () => {
+  expect(maxArea([1,0,2])).toBe(1)
+})
+test('area of nums with 0 in data', () => {
+  expect(maxArea([2,0,1])).toBe(1)
+})
+test('area of nums with 0 in data', () => {
+  expect(maxArea([2,1,0])).toBe(1)
+})

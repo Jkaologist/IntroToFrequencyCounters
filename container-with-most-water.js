@@ -31,24 +31,51 @@
  * @return {number}
  */
 
-function maxArea(height) {
-  let area = 0
-  let tmpArea = 0
-
-  height.unshift(0)
-  console.log(height)
-
-  lastX = height.length -1
-  for (let i=lastX; i > 0; i--) {
-     if (height[lastX] > height[i-1]) {
-       continue
-     }
-     tmpArea = height[lastX] * (lastX - (i-1))
-     if (tmpArea > area) {
-      area = tmpArea
-     }
-  }
-  return area
-}
-
-module.exports = maxArea
+    function maxArea(height) {
+      return Math.max(processForward(height), processReverse(height))
+    }
+    
+    function processForward(height) {
+      let area = 0
+      let tmpArea = 0
+    
+      console.log(height)
+    
+      for (let i=0; i < height.length-1; i++) {
+         if (height[0] > height[i+1]) {
+           continue
+         }
+         tmpArea = height[0] * i+1
+         console.log("processForward tmpArea:",tmpArea)
+         if (tmpArea > area) {
+          area = tmpArea
+          console.log("processForward area:",area)
+         }
+      }
+      return area
+    }
+    
+    function processReverse(height) {
+      let area = 0
+      let tmpArea = 0
+    
+      height.unshift(0)
+      console.log(height)
+    
+      lastX = height.length -1
+      for (let i=lastX; i > 0; i--) {
+         if (height[lastX] > height[i-1]) {
+           continue
+         }
+         console.log("height[i-1]:",height[i-1])
+         tmpArea = height[lastX] * (lastX - (i-1))
+         console.log("tmpArea:",tmpArea)
+         if (tmpArea > area) {
+          area = tmpArea
+          console.log("area:",area)
+         }
+      }
+      return area
+    }
+    
+    module.exports = maxArea

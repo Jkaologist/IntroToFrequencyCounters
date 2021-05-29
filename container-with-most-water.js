@@ -31,10 +31,23 @@
  * @return {number}
  */
 
-let height = [8, 2, 2, 2, 8] // 32
 function maxArea(height) {
-  let l = 0
-  let r = height.length - 1
+  let area = 0
+  let tmpArea = 0
+
+  height.unshift(0)
+  console.log(height)
+
+  lastX = height.length -1
+  for (let i=lastX; i > 0; i--) {
+     if (height[lastX] > height[i-1]) {
+       continue
+     }
+     tmpArea = height[lastX] * (lastX - (i-1))
+     if (tmpArea > area) {
+      area = tmpArea
+     }
+  }
   return area
 }
 

@@ -31,31 +31,31 @@ formed from iceman.
 //   return true
 // }
 
-// FP
-// function validAnagram(str1, str2) {
-//   return (
-//     str1
-//     .split('')
-//     .sort()
-//     .join('') === 
-//     str2
-//     .split('')
-//     .sort()
-//     .join('')
-//   )
-// }
-
+// Functional programming solution
 function validAnagram(str1, str2) {
-  if (str1.length !== str2.length) {
-    return false
-  }
-
-  const lookup = {}
-
-  for (let i = 0; i < str1.length; i++) {
-    let letter = str1[i]
-    lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1
-  }
+  return (
+    str1
+    .split('')
+    .sort()
+    .join('') === 
+    str2
+    .split('')
+    .sort()
+    .join('')
+  )
 }
+
+// function validAnagram(str1, str2) {
+//   if (str1.length !== str2.length) {
+//     return false
+//   }
+
+//   const lookup = {}
+
+//   for (let i = 0; i < str1.length; i++) {
+//     let letter = str1[i]
+//     lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1
+//   }
+// }
 
 module.exports = validAnagram

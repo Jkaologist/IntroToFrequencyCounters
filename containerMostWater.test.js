@@ -1,4 +1,4 @@
-const maxArea = require('./container-with-most-water')
+const maxArea = require('./containerMostWater')
 
 test('height of nums returns max area', () => {
   expect(maxArea([1,8,6,2,5,4,8,3,7])).toBe(49)

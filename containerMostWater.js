@@ -31,56 +31,35 @@
  * @return {number}
  */
 
-    function maxArea(height) {
-      return Math.max(processForward(height), processReverse(height))
-    }
-    
-    function processForward(height) {
-      let area = 0
-      let tmpArea = 0
-    
-      console.log(height)
-      let firstX = 0
-      while (height[firstX] == 0 && firstX < height.length) {
-        firstX = firstX + 1
-      }   
-      for (let i=firstX; i < height.length-1; i++) {
-        if (height[i+1] != 0) {
-          if (height[firstX] > height[i+1]) {
-           continue
-          } 
-          tmpArea = height[firstX] * i+1
-          if (tmpArea > area) {
-            area = tmpArea
-          }
-        }
-      }
-      return area
-    }
-    
-    function processReverse(height) {
-      let area = 0
-      let tmpArea = 0
-    
-      height.unshift(0)
-    
-      lastX = height.length -1
-      while (height[lastX] == 0 && lastX > 0) {
-        lastX = lastX - 1
-      }
-      for (let i=lastX; i > 0; i--) {
-        if (height[i-1] != 0) {
-         if (height[lastX] > height[i-1]) {
-           continue
-         }
-         tmpArea = height[lastX] * (lastX - (i-1))
+// // Brute force approach O(N^2) T.C. O(1) S.C.
+// function maxArea(height) {
+//   let maxArea = 0
+//   for (let i = 0; i < height.length; i++) {
+//     for (let j = height.length - 1; j > 0; j--) {
+//       let y = Math.min(height[i], height[j])
+//       let x = j - i
+//       maxArea = Math.max(x * y, maxArea)
+//     }
+//   }
+//   return maxArea
+// }
 
-         if (tmpArea > area) {
-           area = tmpArea
-         }
-        }
-      }
-  return area
+// Double Pointer Method for O(N) T.C. O(1) S.C.
+function maxArea(height) {
+  let l = 0
+  let r = height.length - 1 
+  let maxArea = 0
+  while (l < r) {
+    let x = r - l
+    let y = Math.min(height[l], height[r])
+    maxArea = Math.max(maxArea, x * y) 
+    if (height[l] < height[r]) {
+      l++
+    } else {
+      r--
+    }
+  }
+  return maxArea
 }
 
-module.exports = maxArea
+module.exports = maxArea;

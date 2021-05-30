@@ -80,7 +80,7 @@
          }
         }
       }
-      return area
-    }
-    
-    module.exports = maxArea
+  return area
+}
+
+module.exports = maxArea

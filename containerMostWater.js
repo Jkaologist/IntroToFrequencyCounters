@@ -31,42 +31,55 @@
  * @return {number}
  */
 
-function maxArea(height) {
-  return Math.max(processForward(height), processReverse(height))
-}
-
-function processForward(height) {
-  let area = 0
-  let tmpArea = 0
-
-  for (let i=0; i < height.length-1; i++) {
-      if (height[0] > height[i+1]) {
-        continue
+    function maxArea(height) {
+      return Math.max(processForward(height), processReverse(height))
+    }
+    
+    function processForward(height) {
+      let area = 0
+      let tmpArea = 0
+    
+      console.log(height)
+      let firstX = 0
+      while (height[firstX] == 0 && firstX < height.length) {
+        firstX = firstX + 1
+      }   
+      for (let i=firstX; i < height.length-1; i++) {
+        if (height[i+1] != 0) {
+          if (height[firstX] > height[i+1]) {
+           continue
+          } 
+          tmpArea = height[firstX] * i+1
+          if (tmpArea > area) {
+            area = tmpArea
+          }
+        }
       }
-      tmpArea = height[0] * i+1
-      if (tmpArea > area) {
-      area = tmpArea
+      return area
+    }
+    
+    function processReverse(height) {
+      let area = 0
+      let tmpArea = 0
+    
+      height.unshift(0)
+    
+      lastX = height.length -1
+      while (height[lastX] == 0 && lastX > 0) {
+        lastX = lastX - 1
       }
-  }
-  return area
-}
+      for (let i=lastX; i > 0; i--) {
+        if (height[i-1] != 0) {
+         if (height[lastX] > height[i-1]) {
+           continue
+         }
+         tmpArea = height[lastX] * (lastX - (i-1))
 
-function processReverse(height) {
-  let area = 0
-  let tmpArea = 0
-
-  height.unshift(0)
-
-  lastX = height.length -1
-  for (let i=lastX; i > 0; i--) {
-      if (height[lastX] > height[i-1]) {
-        continue
+         if (tmpArea > area) {
+           area = tmpArea
+         }
+        }
       }
-      tmpArea = height[lastX] * (lastX - (i-1))
-      if (tmpArea > area) {
-      area = tmpArea
-      }
-  }
   return area
 }
 

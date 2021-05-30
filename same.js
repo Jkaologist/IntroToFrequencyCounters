@@ -61,10 +61,11 @@ function same(arr1, arr2) {
   let freqCount2 = {}
 
   for (let num of arr1) {
+    // advanced frequency counting
     freqCount1[num] = ++freqCount1[num] || 1
   }
   for (let num of arr2) {
-    // traditional
+    // traditional frequency counter
     if (freqCount2[num]) {
       freqCount2[num]++
     } freqCount2[num] = 1

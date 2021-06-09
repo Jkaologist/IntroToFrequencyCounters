@@ -36,7 +36,7 @@ function maximumUnits(boxTypes, truckSize) {
 //   return maxUnitBoxIdx
 // }
 
-// // sort by highest method O(nlogn) TC O(n) SC
+// sort by highest method O(nlogn) TC O(n) SC
   boxTypes.sort((a, b) => b[1] - a[1])
   let totalUnits = 0
   for (let box of boxTypes) {
@@ -47,4 +47,5 @@ function maximumUnits(boxTypes, truckSize) {
   }
   return totalUnits
 }
+
 module.exports = maximumUnits

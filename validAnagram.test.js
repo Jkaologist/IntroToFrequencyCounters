@@ -1,4 +1,4 @@
-const validAnagram = require('./valid-anagram')
+const validAnagram = require('./validAnagram')
 
 test('empty strings are valid anagrams of eachother', () => {
   expect(validAnagram('', '')).toBe(true)

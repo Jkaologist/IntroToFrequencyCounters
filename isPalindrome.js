@@ -9,16 +9,15 @@
 // }
 
 // Using maths O(log(n)) TC O(1) SC
-function isPalindrome(num) {
-  if (num < 0 || (num % 10 === 0 && num !== 0)) { 
-    return false
+function isPalindrome(x) {
+  if (x < 0) return false
+  let left = 10 ** Math.trunc(Math.log10(Math.abs(x)))
+  while (0 < x) {
+    if (Math.trunc(x / left) !== x % 10) return false
+    x = Math.trunc((x % left) / 10)
+    left /= 100
   }
-  let reversedNumber = 0
-  while (num > reversedNumber) {
-    reversedNumber = reversedNumber * 10 + num % 10
-    num /= 10
-  }
-  return num === reversedNumber || num === reversedNumber / 10
+  return true
 }
 
 module.exports = isPalindrome

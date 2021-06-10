@@ -27,9 +27,33 @@ C can be placed before D (500) and M (1000) to make 400 and 900.
 
 Given a Roman numeral, convert it to an integer.
  */
-
 function romanToInt(str) {
-  console.log(str)
+  let numerical = {
+    I : 1,
+    V : 5,
+    X : 10,
+    L : 50,
+    C : 100,
+    D: 500,
+    M: 1000,
+    '': 0
+  }
+  if (str.length === 1 || str.length === 0) {
+    return numerical[str]
+  }
+  let total = 0
+  let i = 0
+  while (i < str.length) {
+    if (numerical[str[i]] < numerical[str[i+1]] && str.length - i >= 2) {
+      total = total - numerical[str[i]] + numerical[str[i+1]]
+      i += 2
+    } 
+    else {
+      total += numerical[str[i]]
+      i ++
+    }
+  }
+  return total
 }
 
 module.exports = romanToInt

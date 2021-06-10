@@ -22,7 +22,7 @@ function letterCombinations(digits) {
   function backtrack(idx = 0, path = []) {
     if (path.length === digits.length) {
       combinations.push(path.join(''))
-      return;
+      return
     }
     let possibleLetters = letters[digits[idx]]
     for (let letter of possibleLetters) {
@@ -31,8 +31,8 @@ function letterCombinations(digits) {
       path.pop()
     }
   }
-  backtrack();
+  backtrack()
   return combinations
 }
 
-module.exports = letterCombinations;
+module.exports = letterCombinations

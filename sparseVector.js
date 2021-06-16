@@ -14,7 +14,7 @@ compute the dot product between two SparseVector.
 
 Follow up: What if only one of the vectors is sparse? */
 
-// O(N) TC with O(N) SC
+// O(N) TC with O(1) SC
 class SparseVector {
   constructor(nums) {
     this.nums = nums 

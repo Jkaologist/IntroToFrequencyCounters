@@ -1,5 +1,3 @@
-const ListNode = require('./listNode')
-
 function mergeLists(l1, l2) {
   // same base cases
   if (l1 === null) { return l2 }
@@ -15,3 +13,5 @@ function mergeLists(l1, l2) {
     return l2
   }
 }
+
+module.exports = mergeLists

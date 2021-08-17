@@ -35,45 +35,23 @@ If all assertions pass, then your solution will be accepted.
  * @param {number} val
  * @return {number}
  */
-
 // // takes in an array of numbers
 // // only work on the nums array
-// // need to output a the variable that counts 
+// // need to output a the variable that counts
 // // the size of the vals
-// function removeElement(nums, val) {
-//   let counter = 0
-//   for (let i = 0; i < nums.length; i++) {
-//     if (nums[i] === val) {
-//       nums[i] = undefined
-//       counter ++
-//     }
-//   }
-//   for (let j = nums.length - 1; j >= 0; j--) {
-//     if (counter === 0) {
-//       break
-//     }
-//     if (nums[j] !== undefined) {
-//       continue
-//     } 
-//     else {
-//       [nums[j], nums[nums.length - 1]] = [nums[nums.length - 1], nums[j]]
-//       nums.pop()
-//       counter --
-//     }
-//   }
-//   return nums.length
-// }
 
-// simple o(n) TC o(1) SC
-function removeElement(nums, val) {
-  let j = 0
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== val) {
-      nums[j] = nums[i]
-      j++
+function removeDuplicates(nums) {
+  if (nums.length === 0) {
+    return 0;
+  }
+  let swapIdx = 0;
+  for (let currIdx = 1; currIdx < nums.length; currIdx++) {
+    if (nums[swapIdx] !== nums[currIdx]) {
+      swapIdx++;
+      nums[swapIdx] = nums[currIdx];
     }
   }
-  return j
+  return swapIdx + 1;
 }
 
-module.exports = removeElement
+module.exports = removeDuplicates;

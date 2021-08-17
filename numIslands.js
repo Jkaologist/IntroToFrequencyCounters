@@ -21,7 +21,6 @@ function numIslands(grid) {
     [-1, 0],
     [1, 0],
   ];
-
   let height = grid.length;
   let width = grid[0].length;
   for (let row = 0; row < height; row++) {

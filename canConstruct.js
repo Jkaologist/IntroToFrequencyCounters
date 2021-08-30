@@ -29,6 +29,4 @@ const canConstruct = (target, wordBank, memo = {}) => {
   return false
 }
 
-console.log(canConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"])) // true
-console.log(canConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", ["e", "ee", "eee", "eeee", "eeeee", "eeeeee"])) // false
 module.exports = canConstruct;

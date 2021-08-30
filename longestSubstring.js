@@ -6,28 +6,28 @@
  * 0 <= s.length <= 5 * 10^4
  * s consists of English letters, digits, symbols and spaces.
  */
-// Brute Force O(N^2) SC O(N)
-function lengthOfLongestSubstring(s) {
-  let longestSubstring = 0;
-  if (s.length === 0) {
-    return longestSubstring;
-  }
-  let substring;
-  for (let i = 0; i < s.length; i++) {
-    substring = "";
-    substring += s[i];
-    for (let j = i + 1; j < s.length; j++) {
-      if (substring.indexOf(s[j]) > -1) {
-        break;
-      }
-      substring += s[j];
-    }
-    if (substring.length > longestSubstring) {
-      longestSubstring = substring.length;
-    }
-  }
-  return longestSubstring;
-}
+// // Brute Force O(N^2) SC O(N)
+// function lengthOfLongestSubstring(s) {
+//   let longestSubstring = 0;
+//   if (s.length === 0) {
+//     return longestSubstring;
+//   }
+//   let substring;
+//   for (let i = 0; i < s.length; i++) {
+//     substring = "";
+//     substring += s[i];
+//     for (let j = i + 1; j < s.length; j++) {
+//       if (substring.indexOf(s[j]) > -1) {
+//         break;
+//       }
+//       substring += s[j];
+//     }
+//     if (substring.length > longestSubstring) {
+//       longestSubstring = substring.length;
+//     }
+//   }
+//   return longestSubstring;
+// }
 
 // Clever JS solution
 function lengthOfLongestSubstring(s) {

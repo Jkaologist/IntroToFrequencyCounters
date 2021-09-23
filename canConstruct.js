@@ -13,19 +13,18 @@
 // until the base case of an empty string is achieved
 const canConstruct = (target, wordBank, memo = {}) => {
   // base cases
-  if (target in memo) return memo[target]
   if (target === "") return true
+  // iterate through the words of the wordbank
   for (let word of wordBank) {
+    // if a prefix exists shrink the target word
     if (target.indexOf(word) === 0) {
+      // suffix will become the remainder of the target after the length of prefix
       const suffix = target.slice(word.length)
-      const result = canConstruct(suffix, wordBank, memo)
-      if (result) {
-        memo[target] = true
+      if (canConstruct(suffix, wordBank) === true) {
         return true
       }
     }
-  }
-  memo[target] = false
+  } 
   return false
 }
 
